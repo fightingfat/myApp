@@ -1,5 +1,6 @@
 package com.example.administrator.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,35 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         Toast.makeText(this,"oncreate",Toast.LENGTH_LONG).show();
     }
+    @Override
+    protected void onStart(){
+        Toast.makeText(this,"onStart",Toast.LENGTH_LONG).show();
+        super.onStart();
+    }
+    @Override
+    protected void onResume(){
+        Toast.makeText(this,"onResume",Toast.LENGTH_LONG).show();
+        super.onResume();
+    }
+    @Override
+    protected void onPause(){
+        Toast.makeText(this,"onPause",Toast.LENGTH_LONG).show();
+        super.onPause();
+        Intent intent = new Intent(MainActivity.this,testActivity.class);
+        startActivity(intent);
+
+    }
+    @Override
+    protected void onStop(){
+        Toast.makeText(this,"onStop",Toast.LENGTH_LONG).show();
+        super.onStop();
+    }
+    @Override
+    protected void onDestroy(){
+        Toast.makeText(this,"onDestroy",Toast.LENGTH_LONG).show();
+        super.onDestroy();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,4 +68,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
